@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+{% for name in l %}
+        <p><a href="{{name.1}}">{{name.0}}</a></p>
+{% endfor %}
+
+{% endblock %}

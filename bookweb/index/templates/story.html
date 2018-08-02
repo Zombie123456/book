@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+{% for chapter in obj %}
+<p><a href="/index/chapter/?name={{name}}&chapter={{chapter.id}}">{{chapter}}</a></p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div id="top_div">
+
+        <!--判断session-->
+
+        <p id="top_2p">
+            {% if session == '' %}
+            <a href="#" class="top_a">登录</a>&nbsp;|
+            <a href="#" class="top_a">注册</a>
+
+            {% else %}
+            欢迎 {{session}}&nbsp;|
+            <a href="#" class="top_a">退出</a>
+            {% endif %}
+        </p>
+
+
+        <p id="top_p">
+    <a href="#" class="top_a">起点中文网</a>&nbsp;|
+        <a href="#" class="top_a">创世中文网</a>&nbsp;|
+            <a href="#" class="top_a">Zombie小说网</a>
+        </p>
+        <!--图片-->
+    </div>
+    <p id="top_img">
+            <img src="{% static 'images/top_images.jpg'%}">
+        </p>
+        {% block top_title %}
+        {% endblock %}
+{% block body %}
+{% endblock %}
+
+<div id="end_div">
+    <p>
+        <a href="#" class="top_a">关于起点</a> &nbsp;|
+        <a href="#" class="top_a">联系我们</a> &nbsp;|
+        <a href="#" class="top_a">加入我们</a> &nbsp;|
+        <a href="#" class="top_a">帮助中心</a> &nbsp;|
+        <a href="#" class="top_a">提交建议</a> &nbsp;|
+        <a href="#" class="top_a">举报中心</a> &nbsp;|</p>
+        <span>Copyright © 2002-2018 www.qidian.com All Rights Reserved版权所有 上海玄霆娱乐信息科技有限公司</span><br>
+<span>上海玄霆娱乐信息科技有限公司 增值电信业务经营许可证沪B2-20080046 出版经营许可证 新出发沪批字第U3718号 沪网文[2015]0081-031 新出网证（沪）字010 沪ICP备08017520号-1</span><br>
+<span>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，我们拒绝任何色情小说，一经发现，即作删除！举报电话：010-59357051</span><br>
+<span>本站所收录的作品、社区话题、用户评论、用户上传内容或图片等均属用户个人行为。如前述内容侵害您的权益，欢迎举报投诉，一经核实，立即删除，本站不承担任何责任</span><br>
+<span>联系方式 总机 021-61870500 地址：中国（上海）自由贸易试验区碧波路690号6号楼101、201室</span><br>
+
+</div>
+
+<div id="end_images">
+    <img src="{% static 'images/end1.jpg' %}" id="img1">
+    <img src="{% static 'images/end2.jpg' %}" id="img2">
+</div>
+</body>
+</html>

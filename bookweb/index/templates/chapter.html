@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+{% block head %}
+<style>
+    #comment{
+        width: 65%;
+        margin: 0 auto;
+        font-family: 方正启体简体, "Microsoft YaHei", 微软雅黑, 宋体;
+        font-size: 19pt;
+    letter-spacing: 0.2em;
+    line-height: 150%;
+    padding-top: 15px;
+    }
+    body{
+        background-color: #E9FAFF;
+    }
+    .a_div{
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    #comment p{
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+<div id="comment">
+    <p>{{chapter_name}}</p>
+    <div class="a_div">
+        <a href="/index">首页</a>
+    <a href="/index/story/?name={{name}}">目录</a>
+    {% if chapter > 1 %}
+    <a href="/index/chapter/?name={{name}}&chapter={{chapter|add:-1}}">上一章</a>
+    {% endif %}
+    {% if chapter < count %}
+    <a href="/index/chapter/?name={{name}}&chapter={{chapter|add:1}}">下一章</a>
+    {% endif %}
+</div>
+
+{% for comment in obj %}
+&nbsp;&nbsp;&nbsp;&nbsp;{{comment}}。<br><br>
+    {% endfor %}
+
+<div class="a_div">
+    <a href="/index">首页</a>
+    <a href="/index/story/?name={{name}}">目录</a>
+    {% if chapter > 1 %}
+    <a href="/index/chapter/?name={{name}}&chapter={{chapter|add:-1}}">上一章</a>
+    {% endif %}
+    {% if chapter < count %}
+    <a href="/index/chapter/?name={{name}}&chapter={{chapter|add:1}}">下一章</a>
+    {% endif %}
+</div>
+    </div>
+{% endblock %}
