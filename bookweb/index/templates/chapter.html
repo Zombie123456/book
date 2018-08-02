@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block body %}
+
 
 {% block head %}
 <style>
@@ -26,9 +26,76 @@
     #comment p{
         text-align: center;
     }
+
+    #che{
+        color: #829392;
+    }
 </style>
+
+<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+<script>
+    $(function () {
+        $("#color").change(function(){
+            var value = $('#color').val();
+            if(value==1){
+                $('#comment').css("color","#2E8B57");
+            }
+            else if(value==0){
+                $('#comment').css("color","#000000");
+            }
+            else if(value==2){
+                $('#comment').css("color","rgb(47, 79, 79)");
+            }
+            else if(value==3){
+                $('#comment').css("color","red");
+            }
+
+});
+        $('#size').change(function () {
+            var value = $('#size').val();
+            if(value==0) {
+                $('#comment').css('font-size', '19pt')
+            }
+            else if(value==1){
+                $('#comment').css('font-size', '16pt')
+            }
+            else if(value==2){
+                $('#comment').css('font-size', '18pt')
+            }
+            else if(value==3){
+                $('#comment').css('font-size', '22pt')
+            }
+        })
+        var a = 1;
+        $("#night").change(function () {
+            if(a%2==1){
+                $('body').css('background-color','#111')
+            }
+            else{
+                $('body').css('background-color','#E9FAFF')
+            }
+            a+=1
+        })
+    })
+</script>
 {% endblock %}
 
+{% block body %}
+<div id="che">
+ 颜色：<select id="color">
+            <option value="0">默认</option>
+            <option value="1">藻绿</option>
+            <option value="2">深灰</option>
+            <option value="3">姨妈红</option>
+        </select>
+        字体：<select id="size">
+            <option value="0">默认</option>
+            <option value="1">16pt</option>
+    <option value="2">18pt</option>
+    <option value="3">22pt</option>
+        </select>
+    夜间<input type="checkbox" id="night">
+    </div>
 <div id="comment">
     <p>{{chapter_name}}</p>
     <div class="a_div">
@@ -40,6 +107,7 @@
     {% if chapter < count %}
     <a href="/index/chapter/?name={{name}}&chapter={{chapter|add:1}}">下一章</a>
     {% endif %}
+
 </div>
 
 {% for comment in obj %}
